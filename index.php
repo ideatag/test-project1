@@ -4,5 +4,4 @@ require('header.php');
 
 // phpinfo();
 
-require('footer.php')
-?>
+require('footer.php');
