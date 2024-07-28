@@ -1,3 +1,8 @@
+<?php
+require("mysql.inc.php");
+$sql = "SELECT `id`,`name` FROM pagini";
+$result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,5 +17,14 @@
         <ul>
             <li style="display:inline; margin-right: 8px;"><a href="zodiac.php">Zodiac</a></li>
             <li style="display:inline; margin-right: 8px;"><a href="calculator.php">Calculator</a></li>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<li style="display:inline; margin-right: 8px;">
+                        <a href="pagina.php?id=' . $row['id'] . '">' . $row['name'] . '</a>
+                        </li>';
+                }
+            }
+            ?>
         </ul>
     </div>

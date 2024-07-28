@@ -8,7 +8,9 @@ $zodiacSign = '';
 if (isset($_POST['data-nastere'])) {
     $dateOfBirth = $_POST['data-nastere'];
     $zodiacSign = getZodiacSign($dateOfBirth);
+    var_dump(strtotime($_POST['data-nastere']));
 }
+
 ?>
 
 <form method="post" name="zodiac" action="zodiac.php">
